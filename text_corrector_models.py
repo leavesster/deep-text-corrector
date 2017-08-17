@@ -209,7 +209,7 @@ class TextCorrectorModel(object):
                     zip(clipped_gradients, params),
                     global_step=self.global_step))
 
-        self.saver = tf.train.Saver(tf.all_variables())
+        self.saver = tf.train.Saver(tf.global_variables())
 
     def build_input_bias(self, encoder_inputs, batch_corrective_tokens_mask):
         packed_one_hot_inputs = tf.one_hot(indices=tf.stack(
